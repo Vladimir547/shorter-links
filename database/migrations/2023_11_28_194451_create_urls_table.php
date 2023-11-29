@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name',255);
             $table->integer('count');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

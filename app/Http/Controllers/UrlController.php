@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UrlRequest;
-use App\Http\Requests\LinksUpdateRequest;
 use App\Models\Url;
+use App\Service\createService;
 
 class UrlController extends Controller
 {
@@ -19,23 +19,10 @@ class UrlController extends Controller
     {
         return view('create');
     }
-    public function generate(UrlRequest $request)
+    public function generate(UrlRequest $request, createService $create)
     {
-        $url = $request->input('url_external');
-
-        $prefix = !empty($request->input('url_internal')) ? $request->input('url_internal') : str_shuffle(\Str::random(3).mt_rand(10,99).\Str::random(5));
-        $name = $request->input('url_name');
-        $match = ['external_url' => $prefix];
-        $create = Url::firstOrCreate([
-            'external_url' => $url,
-            'internal_url' => $prefix,
-            'name' => $name,
-            'count' => 0
-        ]);
-        if($create->wasRecentlyCreated) {
-            return back()->with('success', 'Ссылка успешно сохранена');
-        }
-        return back()->with('error', 'Что-то пошло не так(');
+        $create = $create->createLink($request);
+        return back()->with($create['status'], $create['message']);
     }
     public function away(string $shortUrl) {
 

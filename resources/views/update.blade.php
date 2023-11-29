@@ -41,7 +41,7 @@
                 <input type="text" class="form-control" id="url_name" name="url_name" placeholder="Название" value="{{$link->name}}" required>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary mt-3">Отправить</button>
+                <button type="submit" class="btn btn-primary mt-3" id="create">Отправить</button>
             </div>
         </form>
     </div>
