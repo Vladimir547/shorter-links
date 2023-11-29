@@ -20,4 +20,4 @@ Auth::routes();
 Route::get('/', [UrlController::class, 'show'])->name('show');
 Route::get('/create', [UrlController::class, 'create'])->name('create');
 Route::post('/create', [UrlController::class, 'generate'])->name('generate');
-
+Route::get('/redirect/{shortUrl}', [UrlController::class, 'away'])->name('away');

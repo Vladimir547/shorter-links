@@ -36,4 +36,13 @@ class UrlController extends Controller
         }
         return back()->with('error', 'Что-то пошло не так(');
     }
+    public function away(string $shortUrl) {
+
+        $link = Url::where('internal_url', $shortUrl)->firstOrFail();
+        if($link) {
+            $link->increment('count');
+            return redirect()->away($link->external_url);
+        }
+    }
+
 }
