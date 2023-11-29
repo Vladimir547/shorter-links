@@ -10,7 +10,8 @@ class UrlController extends Controller
     //
     public function show()
     {
-
+        $links = Url::paginate(10);
+        return view('show', ['links' =>$links]);
     }
 
     public function create()
