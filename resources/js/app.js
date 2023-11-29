@@ -2,7 +2,6 @@ import './bootstrap';
 
 document.addEventListener("DOMContentLoaded", function() {
 
-
     if(document.querySelector('.form')) {
         let inputUrl = document.querySelector('#url_external');
         let shortUrl = document.querySelector('#url_internal');
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 shortUrl.classList.remove('is-valid');
                 shortUrl.classList.add('is-invalid');
-
             }
 
         })

@@ -21,9 +21,10 @@ class UrlRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->id;
         return [
             'url_external' => ['required', 'string', 'url'],
-            'url_internal' => ['sometimes', 'unique:urls,internal_url'],
+            'url_internal' => ['sometimes', 'unique:urls,internal_url,' . $id],
             'url_name' => ['required', 'string'],
         ];
     }

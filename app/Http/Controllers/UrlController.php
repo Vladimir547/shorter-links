@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UrlRequest;
+use App\Http\Requests\LinksUpdateRequest;
 use App\Models\Url;
 
 class UrlController extends Controller
@@ -44,5 +45,34 @@ class UrlController extends Controller
             return redirect()->away($link->external_url);
         }
     }
+    public function update(string $id) {
 
-}
+        $link = Url::where('id', $id)->first();
+        return view('update', ['link' => $link]);
+
+
+    }
+    public function postUpdate( int $id,UrlRequest $request ) {
+        $url = $request->input('url_external');
+        $prefix = $request->input('url_internal');
+        $name = $request->input('url_name');
+
+        $update = Url::where('id', $id)->first()->update([
+            'external_url' => $url,
+            'internal_url' => $prefix,
+            'name' => $name
+        ]);
+        if($update) {
+            return back()->with('success', 'Ссылка успешно обновленна');
+        }
+        return back()->with('error', 'Что-то пошло не так(');
+    }
+        public function delete(int $id) {
+            $delete = Url::where('id', $id)->first()->delete();
+            if($delete) {
+                return back()->with('success', 'Ссылка успешно обновленна');
+            }
+            return back()->with('error', 'Что-то пошло не так(');
+        }
+
+    }
