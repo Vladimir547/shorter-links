@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('urls', function (Blueprint $table) {
             $table->id();
             $table->string('external_url',255);
-            $table->string('internal_url',50)->unique()->nullable();
+            $table->string('internal_url',50)->unique();
             $table->string('name',255);
             $table->integer('count');
             $table->timestamps();

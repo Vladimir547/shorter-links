@@ -22,7 +22,9 @@ class UrlRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'external_url' => ['required', 'string', 'url']
+            'url_external' => ['required', 'string', 'url'],
+            'url_internal' => ['sometimes', 'unique:urls,internal_url'],
+            'url_name' => ['required', 'string'],
         ];
     }
 }

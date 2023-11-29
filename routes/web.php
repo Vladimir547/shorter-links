@@ -22,5 +22,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create', [UrlController::class, 'create'])->name('create');
-Route::post('/create', [UrlController::class, 'generate']);
+Route::post('/create', [UrlController::class, 'generate'])->name('generate');
 
