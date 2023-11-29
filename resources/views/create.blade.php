@@ -18,17 +18,23 @@
                 {{ session()->get('error') }}
             </div>
         @endif
-        <form action="{{ route('generate') }}" method="POST">
+        <form action="{{ route('generate') }}" method="POST" class="form">
             @csrf
             <div class="form-group">
                 <label for="url_external">Внешняя ссылка</label>
                 <input type="texxt" class="form-control" id="url_external" name="url_external"
                        aria-describedby="external" placeholder="https:\\" required>
+                <div id="validationUrlFeedback" class="invalid-feedback">
+                    Ссылка должна быть в формате https://www.youtube.com/.
+                </div>
             </div>
             <div class="form-group">
                 <label for="url_internal">Веутреняя ссылка</label>
                 <input type="text" class="form-control" id="url_internal" name="url_internal"
                        placeholder="Короткая ссылка ">
+                <div id="validationUrlFeedback" class="invalid-feedback">
+                    Только буквы и цифры.
+                </div>
             </div>
             <div class="form-group">
                 <label for="url_name">Название</label>
