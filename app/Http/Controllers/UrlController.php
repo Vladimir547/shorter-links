@@ -21,7 +21,7 @@ class UrlController extends Controller
     {
         $url = $request->input('url_external');
 
-        $prefix = !empty($request->input('url_internal')) ? $request->input('url_internal') : 'test';
+        $prefix = !empty($request->input('url_internal')) ? $request->input('url_internal') : str_shuffle(\Str::random(3).mt_rand(10,99).\Str::random(5));
         $name = $request->input('url_name');
         $match = ['external_url' => $prefix];
         $create = Url::firstOrCreate([
@@ -34,6 +34,5 @@ class UrlController extends Controller
             return back()->with('success', 'Ссылка успешно сохранена');
         }
         return back()->with('error', 'Что-то пошло не так(');
-
     }
 }
