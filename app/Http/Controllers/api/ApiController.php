@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class ApiController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @return JsonResponse
      */
     public function index()
     {
@@ -23,7 +23,11 @@ class ApiController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * API для создания новых ссылок
+     ** @use App\Http\Requests\UrlRequest
+     * @use App\Service\createService;
+     *
+     * @return JsonResponse
      */
     public function store(UrlRequest $request,createService $create)
     {

@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="url_internal">Веутреняя ссылка</label>
+                <label for="url_internal">Внутреняя ссылка</label>
                 <input type="text" class="form-control" id="url_internal" name="url_internal"
                        placeholder="Короткая ссылка" value="{{$link->internal_url}}">
                 <div id="validationUrlFeedback" class="invalid-feedback">
