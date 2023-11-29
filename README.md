@@ -7,8 +7,15 @@
 5. Создать .env из файла .env.example
 6. php artisan key:generate
 7. bash ./vendor/laravel/sail/bin/sail up (./vendor/bin/sail up);
-8. php artisan migrate
-9. php artisan serve
+8. Установить в файле .envследущее:
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=shorterLinks
+    DB_USERNAME=sail
+    DB_PASSWORD=password
+9. php artisan migrate
+10. php artisan serve
 ##Принцип работы
    Что бы создавать новые ссылки необходимо перейти во вкладку создать:
     ![image](https://github.com/Vladimir547/shorter-links/assets/48596087/87e2f1cf-294f-4679-8d77-7e974a6a7cd4)
