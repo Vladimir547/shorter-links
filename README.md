@@ -1,7 +1,7 @@
 ##Установка
 
-1. git clone https://github.com/Vladimir547/LaravelShopify.git
-2. cd LaravelShopify
+1. git clone https://github.com/Vladimir547/shorter-links.git
+2. cd shorter-links
 3. composer install
 4. npm install and npm run build and npm run dev
 5. Создать .env из файла .env.example
