@@ -25,3 +25,8 @@ Route::get('/update/{id}', [UrlController::class, 'update'])->name('update');
 Route::post('/update/{id}', [UrlController::class, 'postUpdate'])->name('postUpdate');
 Route::get('/delete/{id}', [UrlController::class, 'delete'])->name('delete');
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
